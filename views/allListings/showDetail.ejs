@@ -1,0 +1,53 @@
+<% layout('layouts/boilerPlate.ejs') %>
+<body>
+    <div class="container d-flex flex-column justify-content-center align-item-center m-2">
+      <h3 class="card-title my-3"><%= listing.title %></h3>
+      <img src="<%= listing.image %>" class="card-img rounded" alt="img" width="100%" height="400vh">
+      <div class="card-body">
+        <p class="card-text"><%= listing.desc %></p>
+        <p>Rs. <%= listing.price %> / night <br> <i class="fa-solid fa-location-dot"></i> <%= listing.country %>, <%= listing.Location %></p>
+        <div class="d-flex">
+        <a href="/api/listings/<%=listing._id %>/edit"><button class="btn btn-info">Edit</button></a>
+        <form method="post" action="/api/listings/<%=listing._id %>?_method=Delete">
+           <button class="btn btn-danger mx-2">Delete</button>
+        </form>
+      </div>
+      </div>
+       <div class="container">
+        <hr>
+       <h2>Leave Review</h2>
+       <form method="post" action="/api/listings/<%= listing.id %>/reviews" class="needs-validation" novalidate>
+         <div class="mb-3">
+          <label for="customRange1" class="form-label">Rating</label>
+          <input type="range" class="form-range" min="0" max="5" id="customRange1" name="review[rating]">
+        </div>
+        <div class="py-2">
+          <label for="coment" class="form-label">comment</label>
+          <textarea name="review[comment]" id="coment" rows="10" class="form-control" placeholder="add a comment!" required></textarea>
+          <div class="invalid-feedback">
+              comment should be must!
+            </div>
+      </div>
+        <button class="btn btn-outline-dark">submit</button>
+       </form> 
+       <hr />
+       <h4>All Reviews</h4>
+       <div class="row">
+       <% for (let review of listing.reviews) { %>
+          <div class="col-sm-4 mb-3 mb-sm-0">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Anonemouse</h5>
+                <p class="card-text"><%= review.comment %></p>
+                <p><b><%= review.rating %></b></p>
+                <form method="post" action="/api/listings/<%= listing._id %>/review/<%=review._id%>?_method=DELETE">
+                  <button class="btn btn-danger">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div> 
+    </div>
+</body>

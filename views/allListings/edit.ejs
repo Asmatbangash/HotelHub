@@ -1,0 +1,41 @@
+<% layout('layouts/boilerPlate.ejs') %>
+<body>
+    <div class="row">
+        <div class="col-8">
+    <h3>Edit your listing</h3>
+    <form method="post" action="/api/listings/<%= listing._id %>?_method=PUT"">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" name="listing[title]" id="" value="<%= listing.title %>" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">description</label>
+            <textarea name="listing[desc]" id="desc" class="form-control" required><%= listing.desc %></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Img Link</label>
+            <input type="text" name="listing[image]" id="img" value="<%= listing.image %>" class="form-control" required>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" name="listing[price]" id="price" value="<%= listing.price %>" class="form-control" required>
+        </div>
+    </div>
+            <div class="col-md-8">
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[Location]" id="location" value="<%= listing.Location %>" class="form-control" required>
+        </div>
+    </div>
+</div>
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" name="listing[country]" id="country" value="<%= listing.country %>" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+</div>
+</div>
+</body>
