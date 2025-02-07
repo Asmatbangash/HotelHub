@@ -1,2 +1,3 @@
-# Listing
-🌍 A web-based platform built with Node.js and EJS for server-side rendering, allowing users to explore List. User can add review and comment.
+🚀 Excited to share my latest project : Hotel Hub
+
+The Hotel Listing App is a dynamic web application designed to simplify the management of hotel listings. Built with Node.js and Express.js, the app leverages EJS templating for a seamless and responsive user interface. It features CRUD operations (Create, Read, Update, Delete) to allow users to effortlessly add, view, edit, and remove hotel details, including name, location, description, and amenities. Robust form validation ensures data accuracy and enhances user experience by preventing invalid submissions. This lightweight and scalable application is ideal for small to medium-sized businesses looking to streamline their hotel management processes.
